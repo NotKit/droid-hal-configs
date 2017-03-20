@@ -2,4 +2,6 @@
 /boot/hybris-updater-script
 /boot/hybris-updater-unpack.sh
 /boot/update-binary
+/boot/boot-initramfs.gz
+/boot/kernel-3.0.8
 

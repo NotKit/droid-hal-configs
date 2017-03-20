@@ -510,6 +510,8 @@ if [ -e packaged-in-main-spec.files ]; then
   delete_files tmp/droid-config.files packaged-in-main-spec.files 0
 fi
 
+touch $RPM_BUILD_ROOT/.nomedia
+
 ################################################################
 %post
 # Force an update of ssu repositories

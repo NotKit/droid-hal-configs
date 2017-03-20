@@ -28,6 +28,8 @@ mv update-binary updater/META-INF/com/google/android/update-binary
 mv hybris-updater-script updater/META-INF/com/google/android/updater-script
 mv hybris-updater-unpack.sh updater/updater-unpack.sh
 mv hybris-boot.img updater/hybris-boot.img
+mv kernel-3.0.8 updater/kernel
+mv boot-initramfs.gz updater/ramdisk.img
 
 # Temporarily move the rootfs into the updater directory
 mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG
@@ -37,7 +39,7 @@ sed -i -e "s %VERSION% $VERSION_ID g" -e "s %IMAGE_FILE% $DST_IMG g" -e "s %IMAG
 
 # pack updater .zip
 pushd updater
-zip -r ../$DST_IMG_BASE.zip META-INF/com/google/android/update-binary META-INF/com/google/android/updater-script updater-unpack.sh hybris-boot.img $DST_IMG_BASE.ks $DST_IMG
+zip -r ../$DST_IMG_BASE.zip META-INF/com/google/android/update-binary META-INF/com/google/android/updater-script updater-unpack.sh kernel ramdisk.img $DST_IMG_BASE.ks $DST_IMG
 popd # updater
 
 # Move the rootfs back out of the updater directory
